@@ -449,10 +449,16 @@
 		}
 	};
 
+	// IMPORTANT: Legacy implementations require this conditional
+	// logic to be commented-out because it doesn't evaluate to true and
+	// the other legacy libraries that depend on the JCF object being
+	// within the global scope fail to locate it. The conditional logic
+	// was added between JCF versions 1.1.3 and 1.2.3.
+	
 	// we need to make JCF available globally if we're in AMD environment
-	if (typeof define === 'function' && define.amd) {
+	//if (typeof define === 'function' && define.amd) {
 		window.jcf = api;
-	}
+	//}
 
 	return api;
 }));
